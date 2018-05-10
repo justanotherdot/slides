@@ -4,13 +4,18 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Ryan James Spencer">
-  <title>Origami Code or The Universal Expressiveness of Fold</title>
+  <title>Origami Code</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/black.css" id="theme">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -22,36 +27,41 @@
   <!--[if lt IE 9]>
   <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
-  <h1 class="title">Origami Code <em>or</em> The Universal Expressiveness of Fold</h1>
+<section id="title-slide">
+  <h1 class="title">Origami Code</h1>
   <p class="author">Ryan James Spencer</p>
-  <p class="date">May 9, 2018</p>
 </section>
 
-<section id="category-theory-for-the-working-hacker" class="slide level1">
-<h1>Category Theory for the Working Hacker</h1>
+<section id="category-theory-for-the-working-hacker" class="slide level2">
+<h2>Category Theory for the Working Hacker</h2>
 <ul>
-<li>Let's learn some powerful domain modeling and programming tools!</li>
+<li class="fragment">Let’s learn some powerful domain modeling and programming tools!</li>
 </ul>
 </section>
-<section id="functors" class="slide level1">
-<h1>Functors</h1>
+<section id="functors" class="slide level2">
+<h2>Functors</h2>
 <ul>
-<li>Think <code>map</code></li>
-<li>Structure preservering</li>
-<li></li>
+<li class="fragment"><p>Structure preservering</p></li>
+<li class="fragment"><pre><code>map :: a -&gt; b -&gt; f a -&gt; f b</code></pre></li>
+<li class="fragment"><p>Says “Map takes functions that map as to bs and gives us back a function that maps as to bs that are in some structure f”</p></li>
 </ul>
 </section>
-<section id="conclusion" class="slide level1">
-<h1>Conclusion</h1>
+<section id="coinduction-is-the-same-as-corecursion" class="slide level2">
+<h2>(Co)Induction is the same as (Co)Recursion</h2>
+</section>
+<section id="section" class="slide level2" data-background-image="/home/rjs/slides/giphy.gif">
+<h2></h2>
+<h3 id="catamorphisms">Catamorphisms</h3>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
 <ul>
-<li><span class="math inline">\(f(x)=\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x-a)^n\)</span></li>
+<li class="fragment"><span class="math inline">\(f(x)=\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x-a)^n\)</span></li>
 </ul>
 </section>
     </div>
@@ -65,12 +75,31 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
-              { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+          { src: 'http://lab.hakim.se/reveal-js/plugin/math/math.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
